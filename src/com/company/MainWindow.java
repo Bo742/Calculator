@@ -2,19 +2,20 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import com.company.ActionListener.*;
 
 public class MainWindow extends JFrame {
     private final  char symbolMathReverse = 177;
-    private JFrame mainFrame;
-    private JTextField output = new JTextField("50");
+    public JFrame mainFrame;
+    public JTextField textOut = new JTextField("");
     private JButton[] numberButton = new JButton[10];
     private JButton mathReverse = new JButton(String.valueOf(symbolMathReverse));
-    private JButton mathMinus = new JButton("−");
+    private JButton mathMinus = new JButton("-");
     private JButton mathPlus = new JButton("+");
     private JButton mathMultiplication = new JButton("*");
     private JButton mathDivision = new JButton("/");
     private JButton mathEquals = new JButton("=");
-    private JButton mathPoint = new JButton(".");
+    private JButton mathPoint = new JButton(",");
 
     private Font fontMathButton = new Font("SansSerif", Font.BOLD,15);
     private Font fontNumberButton = new Font("SansSerif", Font.BOLD,25);
@@ -48,8 +49,9 @@ public class MainWindow extends JFrame {
             for (int j = 0; j < 3; j++) {
                 int number=i*3+j+1;
                 numberButton[number] = new JButton(number+"");
-                numberButton[number].setBounds(j*60+10,(i+1)*60+70,50,50);
+                numberButton[number].setBounds(j*60+10,310-10*(i+1)-50*(i+1),50,50);
                 numberButton[number].setFont(fontNumberButton);
+                numberButton[number].addActionListener(new NumberButtonActionListener());
                 mainFrame.add(numberButton[number]);
             }
         }
@@ -58,7 +60,9 @@ public class MainWindow extends JFrame {
         numberButton[0] = new JButton("0");
         numberButton[0].setBounds(70,310,50,50);
         numberButton[0].setFont(fontNumberButton);
+        numberButton[0].addActionListener(new NumberButtonActionListener());
         mainFrame.add(numberButton[0]);
+
 
         //Create button with reverse -
         mathReverse.setBounds(10,310,50,50);
@@ -68,31 +72,37 @@ public class MainWindow extends JFrame {
         //Create button with math -
         mathMinus.setBounds(190,130,50,50);
         mathMinus.setFont(fontMathButton);
+        mathMinus.addActionListener(new MathActionListener());
         mainFrame.add(mathMinus);
 
-        //Create button with math -
+        //Create button with math +
         mathPlus.setBounds(190,70,50,50);
         mathPlus.setFont(fontMathButton);
+        mathPlus.addActionListener(new MathActionListener());
         mainFrame.add(mathPlus);
 
         //Create button with math *
         mathMultiplication.setBounds(190,190,50,50);
         mathMultiplication.setFont(fontMathButton);
+        mathMultiplication.addActionListener(new MathActionListener());
         mainFrame.add(mathMultiplication);
 
         //Create button with math /
         mathDivision.setBounds(190,250,50,50);
         mathDivision.setFont(fontMathButton);
+        mathDivision.addActionListener(new MathActionListener());
         mainFrame.add(mathDivision);
 
         //Create button with math =
         mathEquals.setBounds(190,310,50,50);
         mathEquals.setFont(fontMathButton);
+        mathEquals.addActionListener(new MathEqualsActionListener());
         mainFrame.add(mathEquals);
 
         //Create button with math .
         mathPoint.setBounds(130,310,50,50);
         mathPoint.setFont(fontMathButton);
+
         mainFrame.add(mathPoint);
 
 
@@ -100,12 +110,12 @@ public class MainWindow extends JFrame {
     }
     //add output
     public void addOutput(){
-        output.setBounds(10,10,230,50);
-        output.setEditable(false);
-        output.setFont(fontOutput);
-        output.setHorizontalAlignment(JTextField.RIGHT);
-        output.setBackground(Color.LIGHT_GRAY);
-        output.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        mainFrame.add(output);
+        textOut.setBounds(10,10,230,50);
+        textOut.setEditable(false);
+        textOut.setFont(fontOutput);
+        textOut.setHorizontalAlignment(JTextField.RIGHT);
+        textOut.setBackground(Color.LIGHT_GRAY);
+        textOut.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        mainFrame.add(textOut);
     }
 }
