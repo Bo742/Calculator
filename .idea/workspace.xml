@@ -4,14 +4,16 @@
     <list default="true" id="3ffdb425-c535-41ce-8f2d-303ce64fb5a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Calculator/com/company/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Calculator/com/company/MainWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Calculator/com/company/MathEquals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Calculator/com/company/MathEquals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/MathEquals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MathEquals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MainWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Calculator" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">

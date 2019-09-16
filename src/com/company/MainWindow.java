@@ -16,8 +16,11 @@ public class MainWindow extends JFrame {
     private JButton mathDivision = new JButton("/");
     private JButton mathEquals = new JButton("=");
     private JButton mathPoint = new JButton(",");
+    private JButton buttonC = new JButton("C");
+    private JButton buttonCE = new JButton("CE");
+    private JButton buttonDelete = new JButton("←");
 
-    private Font fontMathButton = new Font("SansSerif", Font.BOLD,15);
+    private Font fontMathButton = new Font("SansSerif", Font.BOLD,12);
     private Font fontNumberButton = new Font("SansSerif", Font.BOLD,25);
     private Font fontOutput = new Font("SansSerif",Font.BOLD,40);
 
@@ -102,10 +105,22 @@ public class MainWindow extends JFrame {
         //Create button with math .
         mathPoint.setBounds(130,310,50,50);
         mathPoint.setFont(fontMathButton);
-
         mainFrame.add(mathPoint);
 
+        //Create button C
+        buttonC.setBounds(70,70,50,50);
+        buttonC.setFont(fontMathButton);
+        mainFrame.add(buttonC);
 
+        //Create button CE
+        buttonCE.setBounds(10,70,50,50);
+        buttonCE.setFont(fontMathButton);
+        mainFrame.add(buttonCE);
+
+        //Create button delete
+        buttonDelete.setBounds(130,70,50,50);
+        buttonDelete.setFont(fontMathButton);
+        mainFrame.add(buttonDelete);
 
     }
     //add output
