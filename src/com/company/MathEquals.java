@@ -7,12 +7,12 @@ public class MathEquals {
     private String answer ="";
     private String[] masString;
     private String[] answerStack;
-    private String[] str1;
+    private String[] masSymbols;
     private int numberElement=0;
 
     public MathEquals(String str){
         masString = new String[str.length()];
-        str1 = str.split("");
+        masSymbols = str.split("");
     }
 
     public void push(String value){
@@ -26,27 +26,28 @@ public class MathEquals {
 
     }
 
-    public String getAnswer(){
-        DecimalFormat df = new DecimalFormat("#############.#######");
-        //Заполняем массив , в котором храним нашу строку по числам и знакам
+    public void stringConverterInMas(){
         String string="";
         int count=0;
-        for (int i = 0; i < str1.length; i++) {
-            if(str1[i].equals("+") || str1[i].equals("-") || str1[i].equals("*") || str1[i].equals("/") ){
+        for (int i = 0; i < masSymbols.length; i++) {
+            if(masSymbols[i].equals("+") || masSymbols[i].equals("-") || masSymbols[i].equals("*") || masSymbols[i].equals("/") ){
                 if(!string.isEmpty()){
                     masString[count]=string;
                     count++;
                 }
-                string=str1[i];
+                string=masSymbols[i];
                 masString[count]=string;
                 count++;
                 string="";
             }
             else{
-                string = string+str1[i];
+                string = string+masSymbols[i];
             }
         }
         masString[count]=string;
+    }
+
+    public void doubleConverter(){
         for (int i = 0; i < masString.length; i++) {
             if(masString[i]!=null){
                 if(masString[i].contains(",")){
@@ -54,57 +55,127 @@ public class MathEquals {
                     masString[i]=s[0]+"." +s[1];
                 }
             }
-
         }
-        answerStack = new String[masString.length];
+    }
 
+    public void multiplication(){
+        String bStr =pop();
+        pop();
+        String aStr = pop();
+
+        double a = Double.parseDouble(aStr);
+        double b = Double.parseDouble(bStr);
+
+        double c = a*b;
+        if(c%1==0){
+            answer = (long)c+"";
+            push(answer);
+        }
+        else{
+            answer = c+"";
+            push(answer);
+        }
+    }
+
+    public void division(){
+        DecimalFormat df = new DecimalFormat("#############.#######");
+
+        String bStr = pop();
+        pop();
+        String aStr = pop();
+
+        double a = Double.parseDouble(aStr);
+        double b = Double.parseDouble(bStr);
+
+        double c = a/b;
+        if(c%1==0){
+            answer = (long)c+"";
+            push(answer);
+        }
+        else{
+            answer = df.format(c)+"";
+            push(answer);
+        }
+    }
+
+    public void plus(){
+        String bStr = pop();
+        pop();
+        String aStr = pop();
+
+        double a = Double.parseDouble(aStr);
+        double b = Double.parseDouble(bStr);
+
+        double c = a+b;
+        if(c%1==0){
+            answer = (long)c+"";
+            push(answer);
+        }
+        else{
+            answer = c+"";
+            push(answer);
+        }
+    }
+
+    public void minus(){
+        String bStr = pop();
+        pop();
+        String aStr = pop();
+
+        double a = Double.parseDouble(aStr);
+        double b = Double.parseDouble(bStr);
+
+        double c = a-b;
+        if(c%1==0){
+            answer = (long)c+"";
+            push(answer);
+        }
+        else{
+            answer = c+"";
+            push(answer);
+        }
+    }
+
+    public String getAnswer(){
+        //Заполняем массив , в котором храним нашу строку по числам и знакам
+        stringConverterInMas();
+        //Конвертируем строки  с "," в строки c "."
+        doubleConverter();
+        answerStack = new String[masString.length];
         push(masString[0]);
 
         for (int i = 1; i < masString.length ; i++) {
             if(masString[i]!=null){
                 if(masString[i-1].equals("*")){
-                    String bStr = masString[i];
-                    pop();
-                    String aStr = pop();
-
-                    double a = Double.parseDouble(aStr);
-                    double b = Double.parseDouble(bStr);
-
-                    double c = a*b;
-                    if(c%1==0){
-                        answer = (long)c+"";
-                    }
-                    else{
-                        answer = c+"";
-                    }
+                    push(masString[i]);
+                    multiplication();
                 }
                 else{
                     if(masString[i-1].equals("/")){
-                        String bStr = masString[i];
-                        pop();
-                        String aStr = pop();
-
-                        double a = Double.parseDouble(aStr);
-                        double b = Double.parseDouble(bStr);
-
-                        double c = a/b;
-                        if(c%1==0){
-                            answer = (long)c+"";
-                        }
-                        else{
-                            answer = df.format(c)+"";
-                        }
+                        push(masString[i]);
+                        division();
                     }
                     else{
                         push(masString[i]);
                     }
                 }
-
             }
             else{
                 break;
             }
+        }
 
+        for (int i = answerStack.length-1; i > 0 ; i--) {
+            if(answerStack[i]!=null){
+                if(answerStack[i].equals("+")){
+                    plus();
+                }
+                else{
+                    if(answerStack[i].equals("-")){
+                        minus();
+                    }
+                }
+            }
         }
         return answer;
     }
