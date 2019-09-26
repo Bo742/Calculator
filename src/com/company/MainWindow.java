@@ -110,16 +110,19 @@ public class MainWindow extends JFrame {
         //Create button C
         buttonC.setBounds(70,70,50,50);
         buttonC.setFont(fontMathButton);
+        buttonC.addActionListener(new DeleteAllActionListener());
         mainFrame.add(buttonC);
 
         //Create button CE
         buttonCE.setBounds(10,70,50,50);
         buttonCE.setFont(fontMathButton);
+        buttonCE.addActionListener(new DeleteLastNumberActionListener());
         mainFrame.add(buttonCE);
 
         //Create button delete
         buttonDelete.setBounds(130,70,50,50);
         buttonDelete.setFont(fontMathButton);
+        buttonDelete.addActionListener(new BackSpaceActionListiner());
         mainFrame.add(buttonDelete);
 
     }

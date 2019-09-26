@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ffdb425-c535-41ce-8f2d-303ce64fb5a2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/ActionListener/BackSpaceActionListiner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/ActionListener/DeleteAllActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/ActionListener/DeleteLastNumberActionListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Calculator/com/company/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Calculator/com/company/MainWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MainWindow.java" afterDir="false" />
@@ -31,7 +34,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GameCityWithInfo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
