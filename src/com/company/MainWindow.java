@@ -105,6 +105,7 @@ public class MainWindow extends JFrame {
         //Create button with math .
         mathPoint.setBounds(130,310,50,50);
         mathPoint.setFont(fontMathButton);
+        mathPoint.addActionListener(new NumberButtonActionListener());
         mainFrame.add(mathPoint);
 
         //Create button C
