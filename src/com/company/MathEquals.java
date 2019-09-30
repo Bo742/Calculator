@@ -65,6 +65,10 @@ public class MathEquals {
 
         double a = Double.parseDouble(aStr);
         double b = Double.parseDouble(bStr);
+        if(numberElement==1 && answerStack[0].equals("-")){
+            a=a*(-1);
+        }
+
 
         double c = a*b;
         if(c%1==0){
@@ -86,7 +90,9 @@ public class MathEquals {
 
         double a = Double.parseDouble(aStr);
         double b = Double.parseDouble(bStr);
-
+        if(numberElement==1 && answerStack[0].equals("-")){
+            a=a*(-1);
+        }
         double c = a/b;
         if(c%1==0){
             answer = (long)c+"";
@@ -105,7 +111,9 @@ public class MathEquals {
 
         double a = Double.parseDouble(aStr);
         double b = Double.parseDouble(bStr);
-
+        if(numberElement==1 && answerStack[0].equals("-")){
+            a=a*(-1);
+        }
         double c = a+b;
         if(c%1==0){
             answer = (long)c+"";
@@ -124,7 +132,9 @@ public class MathEquals {
 
         double a = Double.parseDouble(aStr);
         double b = Double.parseDouble(bStr);
-
+        if(numberElement==1 && answerStack[0].equals("-")){
+            a=a*(-1);
+        }
         double c = a-b;
         if(c%1==0){
             answer = (long)c+"";
@@ -145,6 +155,7 @@ public class MathEquals {
         push(masString[0]);
 
         for (int i = 1; i < masString.length ; i++) {
+
             if(masString[i]!=null){
                 if(masString[i-1].equals("*")){
                     push(masString[i]);

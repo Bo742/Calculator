@@ -70,6 +70,7 @@ public class MainWindow extends JFrame {
         //Create button with reverse -
         mathReverse.setBounds(10,310,50,50);
         mathReverse.setFont(fontMathButton);
+        mathReverse.addActionListener(new ReverseActionListener());
         mainFrame.add(mathReverse);
 
         //Create button with math -
